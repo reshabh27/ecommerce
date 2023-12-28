@@ -5,7 +5,6 @@ const defaultState = {
   cartItems: [],
   numItemsInCart: 0,
   cartTotal: 0,
-  orderTotal: 0,
 };
 
 
@@ -56,8 +55,6 @@ const cartSlice = createSlice({
       // toast.success("Cart updated");
     },
     calculateTotals: (state) => {
-      state.tax = 0.1 * state.cartTotal;
-      state.orderTotal = state.cartTotal + state.shipping + state.tax;
       localStorage.setItem("cart", JSON.stringify(state));
     },
   },
