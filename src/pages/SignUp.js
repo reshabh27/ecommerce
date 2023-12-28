@@ -12,7 +12,7 @@ export const action = async ({ request }) => {
   // console.log(data);
   try {
     const response = await customFetch.post("/users", data);
-    console.log(response);
+    // console.log(response);
     toast.success("account created successfully");
     return redirect("/login");
   } catch (error) {
@@ -33,8 +33,9 @@ const SignUp = () => {
         <FormInput type="email" label="email" name="email" />
         <FormInput type="password" label="password" name="password" />
         <div className="">
-          <SubmitBtn text="register" />
+          <SubmitBtn text="SignUp" />
         </div>
+
         <p className="text-center">
           Already a member?
           <Link to="/login" className="">

@@ -11,6 +11,11 @@ const Cart = () => {
     return "Your cart is empty" ;
   }
 
+
+  const handleConfirmation = () => {
+    
+  }
+
   return (
     <>
       <h1>Shopping Cart</h1>
@@ -32,10 +37,11 @@ const Cart = () => {
                     </form>
                     <h3 className="font-bold text-lg">Confirmation page</h3>
                     <p className="py-4">Press ESC key or click on ✕ button to close</p>
+
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button onClick={handleConfirmation} className="btn">Confirm order</button>
                         </form>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ export const action =
   async ({ request }) => {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
-    console.log(data);
+    // console.log(data);
     try {
       const response = await customFetch.post("/auth/login", data);
       //   console.log("Login Response:", response);
