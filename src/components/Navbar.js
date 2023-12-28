@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <>
       <div style={{ marginBottom: "50px" }}>
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-300 ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -54,9 +54,7 @@ const Navbar = () => {
                 <li>
                   <Link to="products">Products</Link>
                 </li>
-                <li>
-                  {user ? <Link to="cart">Cart</Link> : ""}
-                </li>
+                <li>{user ? <Link to="cart">Cart</Link> : ""}</li>
               </ul>
             </div>
             <Link to="/" className="btn btn-ghost text-xl">
@@ -71,15 +69,17 @@ const Navbar = () => {
               <li>
                 <Link to="products">Products</Link>
               </li>
-              <li>
-                {user ? <Link to="cart">Cart</Link> : ""}
-              </li>
+              <li>{user ? <Link to="cart">Cart</Link> : ""}</li>
             </ul>
           </div>
 
           <div className="navbar-end">
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle" >
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle"
+              >
                 <div className="indicator">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -95,26 +95,38 @@ const Navbar = () => {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  <span className="badge badge-sm indicator-item">{user ? cartData.numItemsInCart : 0}</span>
+                  <span className="badge badge-sm indicator-item">
+                    {user ? cartData.numItemsInCart : 0}
+                  </span>
                 </div>
               </div>
-              {user ? 
-              <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow" >
-                <div className="card-body">
-                  <span className="font-bold text-lg">{cartData.numItemsInCart} Items</span>
-                  <span className="text-info">Subtotal: {cartData.cartTotal}</span>
-                  <div className="card-actions">
-                    <button onClick={() => navigate('/cart')} className="btn btn-primary btn-block">
-                      View cart
-                    </button>
+              {user ? (
+                <div
+                  tabIndex={0}
+                  className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+                >
+                  <div className="card-body">
+                    <span className="font-bold text-lg">
+                      {cartData.numItemsInCart} Items
+                    </span>
+                    <span className="text-info">
+                      Subtotal: {cartData.cartTotal}
+                    </span>
+                    <div className="card-actions">
+                      <button
+                        onClick={() => navigate("/cart")}
+                        className="btn btn-primary btn-block"
+                      >
+                        View cart
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-              :
-              ""
-              }
+              ) : (
+                ""
+              )}
             </div>
-            {user ? 
+            {user ? (
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
@@ -136,9 +148,10 @@ const Navbar = () => {
                     <a onClick={handleLogOut}>Logout</a>
                   </li>
                 </ul>
-              </div> : 
-              <NavLink to='/login'> Login </NavLink>            
-            }
+              </div>
+            ) : (
+              <NavLink to="/login"> Login </NavLink>
+            )}
           </div>
         </div>
       </div>

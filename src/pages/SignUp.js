@@ -28,18 +28,22 @@ const SignUp = () => {
   return (
     <section className="">
       <Form method="POST" className="">
-        <h4 className="">Register</h4>
+        <br /><br />
+        <h1 className="font-bold	text-5xl">Register</h1>
+        <br /><br /><br />
         <FormInput type="text" label="name" name="name" />
         <FormInput type="email" label="email" name="email" />
         <FormInput type="password" label="password" name="password" />
-        <div className="">
+        <br />
+        <div className="btn btn-primary">
           <SubmitBtn text="SignUp" />
         </div>
-
+        <br />
+        <br />
         <p className="text-center">
           Already a member?
-          <Link to="/login" className="">
-            login
+          <Link to="/login" className="btn btn-error">
+            Login
           </Link>
         </p>
       </Form>

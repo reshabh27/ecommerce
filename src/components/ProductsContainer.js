@@ -13,7 +13,7 @@ const ProductsContainer = () => {
       <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => {
           return (
-            <SingleProduct product={product}/>
+            <SingleProduct key={product.id} product={product}/>
           );
         })}
       </div>

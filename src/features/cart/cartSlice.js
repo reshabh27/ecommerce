@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-// import { toast } from "react-toastify";
+import { createSlice, current } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const defaultState = {
   cartItems: [],
@@ -28,7 +28,10 @@ const cartSlice = createSlice({
       state.numItemsInCart += product.amount;
       state.cartTotal += product.price * product.amount;
       cartSlice.caseReducers.calculateTotals(state);
-      // toast.success("Item added to cart");
+      toast("Item added to cart", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     },
     clearCart: (state) => {
       localStorage.setItem("cart", JSON.stringify(defaultState));
@@ -43,7 +46,10 @@ const cartSlice = createSlice({
       // console.log(cartSlice);
       // console.log(cartSlice.reducer);
       cartSlice.caseReducers.calculateTotals(state);
-      // toast.error("Item removed from cart");
+      toast.error("Item removed from cart", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     },
     editItem: (state, action) => {
       const { cartID, amount } = action.payload;
@@ -52,14 +58,28 @@ const cartSlice = createSlice({
       state.cartTotal += item.price * (amount - item.amount);
       item.amount = amount;
       cartSlice.caseReducers.calculateTotals(state);
-      // toast.success("Cart updated");
+      toast.success("Cart updated",{
+      position: "top-center"}
+      );
     },
+    removeAllItem : (state) => {
+      console.log(current(state));
+      state.cartItems = [];
+      state.numItemsInCart= 0;
+      state.cartTotal = 0;
+      cartSlice.caseReducers.calculateTotals(state);
+      toast.success("Your purchase has been confirmed!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+    },
+
     calculateTotals: (state) => {
       localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
 
-export const { addItem, clearCart, removeItem, editItem } = cartSlice.actions;
+export const { addItem, clearCart, removeItem, editItem, removeAllItem } = cartSlice.actions;
 
 export default cartSlice.reducer;

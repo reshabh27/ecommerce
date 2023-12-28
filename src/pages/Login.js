@@ -43,19 +43,26 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="">
-      <Form method="post" className="">
-        <h4 className="">Login</h4>
+    <section className="loginHeader">
+      <Form method="post" className="formcontrol">
+      <br /><br />  
+        <h1 className="font-bold	text-5xl">Login</h1>
+        <br /><br /><br />
         <FormInput type="email" label="email" name="email" />
         <FormInput type="password" label="password" name="password" />
+        <br />
         <div className="btn btn-primary">
           <SubmitBtn text="login" />
         </div>
-
+        <br /> <br />
         <p className="">
           Not a member yet?{" "}
-          <Link to="/signup" className="">
-            register
+          <Link
+            to="/signup"
+            className="btn btn-error"
+            style={{ color: "white" }}
+          >
+            Register
           </Link>
         </p>
       </Form>

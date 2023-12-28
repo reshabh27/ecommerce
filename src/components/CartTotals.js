@@ -9,7 +9,7 @@ const CartTotals = () => {
         {/* Order Total */}
         <p className="flex justify-between text-sm mt-4 pb-2">
           <span>Order Total</span>
-          <span className="font-medium">{cartTotal}</span>
+          <span className="font-medium"> <i className="fas fa-rupee-sign"/>  {cartTotal}</span>
         </p>
       </div>
     </div>
