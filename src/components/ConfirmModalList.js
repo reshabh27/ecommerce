@@ -35,9 +35,9 @@ const ConfirmModalList = ({ cartItem }) => {
        </div>
 
        {/* PRICE */}
-       <p className="font-medium sm:ml-auto"> <i className="fas fa-rupee-sign"/> {price}</p>
+       <p className="font-medium sm:ml-auto"> Price : {price} Rs per item</p>
      </div>
    );
 }
 
-export default ConfirmModalList
+export default ConfirmModalList 

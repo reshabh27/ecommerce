@@ -6,7 +6,7 @@ import { customFetch } from '../utils';
 export const loader  = async () => {
     const response = await customFetch.get("/products");
     const products = response.data;
-    console.log(products);
+    // console.log(products);
     return { products };
   };
 

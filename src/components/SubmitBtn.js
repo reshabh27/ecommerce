@@ -5,10 +5,10 @@ const SubmitBtn = ({ text }) => {
   const isSubmitting = navigation.state === "submitting";
 
   return (
-    <button type="submit" className="" disabled={isSubmitting} >
+    <button type="submit"  disabled={isSubmitting} >
       {isSubmitting ? (
         <>
-          <span className=""></span>
+          <span></span>
           sending...
         </>
       ) : (

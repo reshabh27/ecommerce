@@ -39,11 +39,11 @@ const SingleProduct = ({ product }) => {
   };
 
   return (
-    <div style={{ marginBottom: "70px" }}>
+    <div style={{ marginBottom: "70px" }} className="shadow-2xl p-10">
       <div>
         <div
           key={product.id}
-          className="card"
+          className="card cursor-pointer"
           onClick={() =>
             document.getElementById(`my_modal_${product.id}`).showModal()
           }
@@ -61,7 +61,7 @@ const SingleProduct = ({ product }) => {
       <div className="form-control w-full max-w-xs">
         <label className="label" htmlFor="amount">
           <h4 className="text-md font-medium -tracking-wider capitalize">
-            amount
+            amount 
           </h4>
         </label>
         <select
@@ -72,9 +72,11 @@ const SingleProduct = ({ product }) => {
         >
           {generateAmountOptions(20)}
         </select>
+        <br />
         <div>
-          <b>price : {price}</b>
+          <b>price : {price} Rs</b>
         </div>
+        <br />
         <div>
           <button className="btn btn-success" onClick={addToCart}>
             Add to cart
@@ -84,10 +86,11 @@ const SingleProduct = ({ product }) => {
         <dialog id={`my_modal_${product.id}`} className="modal">
           <div className="modal-box">
             <h3 className="font-bold text-lg">{title}</h3>
+            <br />
             <img
               src={images[0]}
               alt={title}
-              className="rounded-xl h-64 md:h-48 object-cover"
+              className="rounded-xl h-64 md:h-48 object-cover mx-auto"
             />
             <p className="py-4">{product.description}</p>
             <b>Price : {price}</b>

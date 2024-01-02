@@ -27,7 +27,7 @@ const cartSlice = createSlice({
 
       state.numItemsInCart += product.amount;
       state.cartTotal += product.price * product.amount;
-      cartSlice.caseReducers.calculateTotals(state);
+      localStorage.setItem("cart", JSON.stringify(state));
       toast("Item added to cart", {
         position: "top-center",
         autoClose: 2000,
@@ -45,7 +45,7 @@ const cartSlice = createSlice({
       state.cartTotal -= product.price * product.amount;
       // console.log(cartSlice);
       // console.log(cartSlice.reducer);
-      cartSlice.caseReducers.calculateTotals(state);
+      localStorage.setItem("cart", JSON.stringify(state));
       toast.error("Item removed from cart", {
         position: "top-center",
         autoClose: 2000,
@@ -57,7 +57,7 @@ const cartSlice = createSlice({
       state.numItemsInCart += amount - item.amount;
       state.cartTotal += item.price * (amount - item.amount);
       item.amount = amount;
-      cartSlice.caseReducers.calculateTotals(state);
+      localStorage.setItem("cart", JSON.stringify(state));
       toast.success("Cart updated",{
       position: "top-center"}
       );
@@ -67,16 +67,13 @@ const cartSlice = createSlice({
       state.cartItems = [];
       state.numItemsInCart= 0;
       state.cartTotal = 0;
-      cartSlice.caseReducers.calculateTotals(state);
+      localStorage.setItem("cart", JSON.stringify(state));
       toast.success("Your purchase has been confirmed!", {
         position: "top-center",
         autoClose: 2000,
       });
     },
 
-    calculateTotals: (state) => {
-      localStorage.setItem("cart", JSON.stringify(state));
-    },
   },
 });
 

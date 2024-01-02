@@ -1,9 +1,8 @@
 import React from "react";
-import { Form, Link, redirect, useNavigate } from "react-router-dom";
+import { Form, Link, redirect} from "react-router-dom";
 import { customFetch } from "../utils";
 import { toast } from "react-toastify";
 import { loginUser } from "../features/user/userSlice";
-import { useDispatch } from "react-redux";
 import SubmitBtn from "../components/SubmitBtn";
 import FormInput from "../components/FormInput";
 
@@ -30,17 +29,13 @@ export const action =
       );
       return redirect("/");
     } catch (error) {
-      const errorMessage =
-        error?.response?.data?.error?.message ||
-        "please double check your credentials";
+      const errorMessage = "please double check your credentials";
       toast.error(errorMessage);
       return null;
     }
   };
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   return (
     <section className="loginHeader">

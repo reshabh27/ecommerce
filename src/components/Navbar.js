@@ -20,8 +20,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div style={{ marginBottom: "50px" }}>
-        <div className="navbar bg-base-300 ">
+      <div>
+        <div className="navbar bg-gray-900 text-white	">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -64,12 +64,12 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" style={{color:'white'}}>Home</Link>
               </li>
               <li>
-                <Link to="products">Products</Link>
+                <Link to="products" style={{color:'white'}}>Products</Link>
               </li>
-              <li>{user ? <Link to="cart">Cart</Link> : ""}</li>
+              <li>{user ? <Link to="cart" style={{color:'white'}}>Cart</Link> : ""}</li>
             </ul>
           </div>
 
@@ -106,11 +106,11 @@ const Navbar = () => {
                   className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
                 >
                   <div className="card-body">
-                    <span className="font-bold text-lg">
+                    <span className="font-bold text-lg text-black">
                       {cartData.numItemsInCart} Items
                     </span>
                     <span className="text-info">
-                      Subtotal: {cartData.cartTotal}
+                      Total: {cartData.cartTotal} Rs
                     </span>
                     <div className="card-actions">
                       <button
@@ -145,7 +145,7 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a onClick={handleLogOut}>Logout</a>
+                    <button className='text-gray-950' onClick={handleLogOut}>Logout</button>
                   </li>
                 </ul>
               </div>

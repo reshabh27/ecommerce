@@ -19,10 +19,18 @@ const userSlice = createSlice({
       const user = { ...action.payload.user, token: action.payload.accessToken };
       state.user = user;
       localStorage.setItem("user", JSON.stringify(user));
+      toast.success("Welcome to the E-commerce website", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     },
     logoutUser: (state) => {
       state.user = null;
       localStorage.removeItem("user");
+      toast.error("you have logged out", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     },
   },
 });

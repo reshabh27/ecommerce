@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import SingleProduct from './SingleProduct';
 
 
@@ -10,11 +10,10 @@ const ProductsContainer = () => {
 
   return (
     <>
-      <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <br /><br />
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 place-items-center">
         {products.map((product) => {
-          return (
-            <SingleProduct key={product.id} product={product}/>
-          );
+          return <SingleProduct key={product.id} product={product} />;
         })}
       </div>
     </>
