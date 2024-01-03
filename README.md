@@ -12,4 +12,5 @@ https://fakeapi.platzi.com/
 - Javascript
 - DaisyUi
 - Tailwind CSS
+- React toastify
 
